@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ASF Eventos — Calendário de surf feminino e competições | ASF</title>
+<meta name="description" content="Calendário de competições, encontros e workshops de surf feminino no Brasil. Filtre por tipo de evento e planeje sua temporada com a ASF.">
+<link rel="canonical" href="https://acarolmourad-commits.github.io/asf-eventos/">
+<meta property="og:type" content="website">
+<meta property="og:title" content="ASF Eventos — Calendário de surf feminino">
+<meta property="og:description" content="Competições, encontros e workshops — toda a agenda do surf feminino em um só lugar.">
+<meta property="og:url" content="https://acarolmourad-commits.github.io/asf-eventos/">
+<meta name="theme-color" content="#00A8CC">
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;700;800&display=swap" rel="stylesheet">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"WebApplication","name":"ASF Eventos","url":"https://acarolmourad-commits.github.io/asf-eventos/","applicationCategory":"SportsApplication","operatingSystem":"Web","inLanguage":"pt-BR","isPartOf":{"@type":"WebSite","name":"ASF — Associação Surf Feminino","url":"https://acarolmourad-commits.github.io/asf-app/"}}
+</script>
+<style>
+:root{--primary:#00A8CC;--dark:#0E2439;--purple:#9B59B6;--bg:#F7FBFC;--gray:#5A6B7A}
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:'Outfit',system-ui,sans-serif;background:var(--bg);color:var(--dark)}
+nav{position:sticky;top:0;background:#fff;border-bottom:1px solid #E5EEF2;padding:10px 16px;display:flex;gap:14px;flex-wrap:wrap;z-index:10;justify-content:center}
+nav a{color:var(--primary);text-decoration:none;font-weight:700;font-size:13px}
+nav a.on{color:var(--purple)}
+header{background:linear-gradient(135deg,var(--primary),var(--purple));color:#fff;padding:44px 20px 32px;text-align:center}
+header h1{font-size:clamp(22px,5vw,32px);margin:6px 0}
+header .tag{font-size:11px;letter-spacing:2px;text-transform:uppercase;opacity:.9}
+header p{opacity:.95;font-size:14px}
+.wrap{max-width:860px;margin:0 auto;padding:24px 16px 60px}
+.filtros{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:16px}
+.filtros button{border:2px solid var(--primary);background:#fff;color:var(--primary);font-weight:700;padding:8px 16px;border-radius:999px;cursor:pointer;font-family:inherit}
+.filtros button.on{background:var(--primary);color:#fff}
+.card{background:#fff;border-radius:14px;padding:16px 18px;margin:12px 0;box-shadow:0 2px 10px rgba(14,36,57,.06);display:flex;gap:16px;align-items:flex-start}
+.data{min-width:56px;text-align:center;background:linear-gradient(135deg,var(--primary),var(--purple));color:#fff;border-radius:12px;padding:8px 6px}
+.data .d{font-size:22px;font-weight:800;line-height:1}
+.data .m{font-size:11px;text-transform:uppercase}
+.card h2{font-size:16px;margin-bottom:3px}
+.muted{color:var(--gray);font-size:12.5px}
+.badge{display:inline-block;font-size:11px;font-weight:700;padding:3px 10px;border-radius:999px;margin-top:6px;background:#E8F6FA;color:var(--primary)}
+footer{text-align:center;font-size:12.5px;color:var(--gray);padding:24px;border-top:1px solid #E5EEF2}
+</style>
+</head>
+<body>
+<nav>
+<a href="https://acarolmourad-commits.github.io/asf-app/">🏄 ASF App</a>
+<a href="https://acarolmourad-commits.github.io/asf-previsao/">🌊 Previsão</a>
+<a href="https://acarolmourad-commits.github.io/asf-praias/">🏖️ Praias</a>
+<a href="https://acarolmourad-commits.github.io/asf-treino/">💪 Treino</a>
+<a class="on" href="https://acarolmourad-commits.github.io/asf-eventos/">📅 Eventos</a>
+<a href="https://acarolmourad-commits.github.io/asf-app/aprender/">📚 Guias</a>
+</nav>
+<header>
+<div class="tag">ASF · Eventos</div>
+<h1>Calendário do surf feminino</h1>
+<p>Competições, encontros de manas e workshops — planeje sua temporada.</p>
+</header>
+<main class="wrap">
+<div class="filtros">
+<button class="on" data-f="todos">Todos</button>
+<button data-f="competicao">Competições</button>
+<button data-f="encontro">Encontros</button>
+<button data-f="workshop">Workshops</button>
+</div>
+<div id="lista"></div>
+<p class="muted" style="margin-top:16px">Datas sujeitas a confirmação pelas organizadoras. Quer divulgar um evento? Fale com a ASF pela <a href="https://acarolmourad-commits.github.io/asf-app/contato.html" style="color:var(--primary)">página de contato</a>.</p>
+</main>
+<footer>🌊 ASF — Associação Surf Feminino · <a href="https://acarolmourad-commits.github.io/asf-app/" style="color:var(--primary)">App principal</a> · <a href="https://acarolmourad-commits.github.io/asf-previsao/" style="color:var(--primary)">Previsão do mar</a></footer>
+<script>
+const meses=['','JAN','FEV','MAR','ABR','MAI','JUN','JUL','AGO','SET','OUT','NOV','DEZ'];
+const eventos=[
+{d:'2026-09-27',t:'Encontro de Manas — Surf & Café',local:'Praia da Baleia, São Sebastião/SP',tipo:'encontro',desc:'Sessão em grupo para todos os níveis, seguida de café na areia.'},
+{d:'2026-10-04',t:'Workshop: Leitura de mar e segurança',local:'Camburizinho, São Sebastião/SP',tipo:'workshop',desc:'Como ler correntes, vento e swell — com prática na água.'},
+{d:'2026-10-11',t:'Copa ASF Iniciantes — 1ª etapa',local:'Boracéia, Bertioga/SP',tipo:'competicao',desc:'Baterias de longboard e softboard para iniciantes. Inscrições abertas.'},
+{d:'2026-10-25',t:'Encontro de Manas Ubatuba',local:'Perequê-Açú, Ubatuba/SP',tipo:'encontro',desc:'Surf em grupo + roda de conversa sobre progressão.'},
+{d:'2026-11-08',t:'Workshop: Técnica de remada',local:'Maresias, São Sebastião/SP',tipo:'workshop',desc:'Treino dirigido de remada e posicionamento com instrutoras.'},
+{d:'2026-11-22',t:'Circuito Litoral Norte Feminino — Final',local:'Itamambuca, Ubatuba/SP',tipo:'competicao',desc:'Etapa decisiva do circuito com categorias base e open.'}];
+const lista=document.getElementById('lista');
+function render(f){lista.innerHTML='';eventos.filter(e=>f==='todos'||e.tipo===f).forEach(e=>{const[y,m,d]=e.d.split('-');lista.insertAdjacentHTML('beforeend',`<div class="card"><div class="data"><div class="d">${d}</div><div class="m">${meses[+m]}</div></div><div><h2>${e.t}</h2><div class="muted">📍 ${e.local}</div><p style="font-size:14px;margin-top:4px">${e.desc}</p><span class="badge">${e.tipo}</span></div></div>`);});if(!lista.children.length)lista.innerHTML='<p class="muted">Nenhum evento nesta categoria.</p>';}
+document.querySelectorAll('.filtros button').forEach(b=>b.onclick=()=>{document.querySelectorAll('.filtros button').forEach(x=>x.classList.remove('on'));b.classList.add('on');render(b.dataset.f);});
+render('todos');
+</script>
+</body>
+</html>
