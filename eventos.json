@@ -1,0 +1,61 @@
+{
+  "atualizado_em": null,
+  "eventos": [
+    {
+      "t": "WSL QS 6.000 — Saquarema",
+      "local": "Saquarema/RJ",
+      "tipo": "competicao",
+      "desc": "Etapa do Qualifying Series da World Surf League, prevista no calendário FESERJ 2026. Elite do surf internacional no RJ.",
+      "fonte": "FESERJ / WSL"
+    },
+    {
+      "t": "Hang Loose Surf Attack 2026 — Etapa Final",
+      "local": "Maresias, São Sebastião/SP",
+      "tipo": "competicao",
+      "desc": "3ª e última etapa do Circuito Paulista de Surfe de Base da SPSurf. Define os campeões do ranking paulista de base.",
+      "fonte": "SPSurf"
+    },
+    {
+      "t": "Circuito Gaúcho de Surf 2026 — 1ª Etapa",
+      "local": "Torres/RS",
+      "tipo": "competicao",
+      "desc": "Abertura do Circuito Gaúcho da Federação Gaúcha de Surf (FGS). O circuito terá 5 etapas.",
+      "fonte": "FGS"
+    },
+    {
+      "t": "ASF Surf Day Feminino",
+      "local": "Praia de Indaiá, Bertioga/SP",
+      "tipo": "encontro",
+      "desc": "Encontro gratuito da comunidade ASF: aula para iniciantes, free surf e roda de conversa.",
+      "fonte": "ASF"
+    },
+    {
+      "t": "Circuito Catarinense de Surf Pro 2026 — 2ª Etapa",
+      "local": "Praia de Palmas, Governador Celso Ramos/SC",
+      "tipo": "competicao",
+      "desc": "2ª etapa do Circuito Catarinense Pro (Fecasurf/Fesporte), circuito com premiação recorde no estado.",
+      "fonte": "Fecasurf"
+    },
+    {
+      "t": "Surf Brasil Pro 2026 — 4ª Etapa (Final)",
+      "local": "Santa Catarina (praia a definir)",
+      "tipo": "competicao",
+      "desc": "Etapa final do circuito profissional nacional da CBSurf. Define os campeões brasileiros profissionais de 2026.",
+      "fonte": "CBSurf"
+    },
+    {
+      "t": "Tríplice Coroa 2026",
+      "local": "Saquarema/RJ",
+      "tipo": "competicao",
+      "desc": "Evento do calendário oficial FESERJ 2026, reunindo as categorias do estadual carioca.",
+      "fonte": "FESERJ"
+    },
+    {
+      "t": "Circuito Catarinense de Surf Pro 2026 — Etapa Final",
+      "local": "Prainha, São Francisco do Sul/SC",
+      "tipo": "competicao",
+      "desc": "3ª e última etapa do Circuito Catarinense Pro (Fecasurf/Fesporte). Define os campeões catarinenses do ano.",
+      "fonte": "Fecasurf"
+    }
+  ]
+}
