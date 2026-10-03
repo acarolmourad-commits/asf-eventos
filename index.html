@@ -79,17 +79,11 @@ footer{text-align:center;font-size:12.5px;color:var(--gray);padding:24px;border-
 </main>
 <footer>🌊 ASF — Associação Surf Feminino · <a href="https://acarolmourad-commits.github.io/asf-app/" style="color:var(--primary)">App principal</a> · <a href="https://acarolmourad-commits.github.io/asf-previsao/" style="color:var(--primary)">Previsão do mar</a></footer>
 <script>
-const eventos=[
-{t:'Encontro de Manas — Surf & Café',local:'Praia da Baleia, São Sebastião/SP',tipo:'encontro',desc:'Sessão em grupo para todos os níveis, seguida de café na areia.'},
-{t:'Workshop: Leitura de mar e segurança',local:'Camburizinho, São Sebastião/SP',tipo:'workshop',desc:'Como ler correntes, vento e swell — com prática na água.'},
-{t:'Copa ASF Iniciantes — 1ª etapa',local:'Boracéia, Bertioga/SP',tipo:'competicao',desc:'Baterias de longboard e softboard para iniciantes.'},
-{t:'Encontro de Manas Ubatuba',local:'Perequê-Açú, Ubatuba/SP',tipo:'encontro',desc:'Surf em grupo + roda de conversa sobre progressão.'},
-{t:'Workshop: Técnica de remada',local:'Maresias, São Sebastião/SP',tipo:'workshop',desc:'Treino dirigido de remada e posicionamento com instrutoras.'},
-{t:'Circuito Litoral Norte Feminino — Final',local:'Itamambuca, Ubatuba/SP',tipo:'competicao',desc:'Etapa decisiva do circuito com categorias base e open.'}];
+let eventos=[];
 const lista=document.getElementById('lista');
-function render(f){lista.innerHTML='';eventos.filter(e=>f==='todos'||e.tipo===f).forEach(e=>{lista.insertAdjacentHTML('beforeend',`<div class="card"><span class="date-badge">Data a confirmar</span><div><h2>${e.t}</h2><div class="muted">📍 ${e.local}</div><p style="font-size:14px;margin-top:4px">${e.desc}</p><span class="badge">${e.tipo}</span></div></div>`);});if(!lista.children.length)lista.innerHTML='<p class="muted">Nenhum evento nesta categoria.</p>';}
+function render(f){lista.innerHTML='';eventos.filter(e=>f==='todos'||e.tipo===f).forEach(e=>{lista.insertAdjacentHTML('beforeend',`<div class="card"><span class="date-badge">${e.data||'Data a confirmar'}</span><div><h2>${e.t}</h2><div class="muted">📍 ${e.local}</div><p style="font-size:14px;margin-top:4px">${e.desc}</p><span class="badge">${e.tipo}</span>${e.fonte?` <span class="badge" style="opacity:.7">fonte: ${e.fonte}</span>`:''}</div></div>`);});if(!lista.children.length)lista.innerHTML='<p class="muted">Nenhum evento nesta categoria no momento.</p>';}
+fetch('eventos.json').then(r=>{if(!r.ok)throw 0;return r.json()}).then(d=>{eventos=d.eventos||[];if(d.atualizado_em)lista.insertAdjacentHTML('beforebegin',`<p class="muted" style="font-size:12px">Atualizado em ${d.atualizado_em}</p>`);render('todos');}).catch(()=>{lista.innerHTML='<p class="muted">Não foi possível carregar os eventos no momento.</p>';});
 document.querySelectorAll('.filtros button').forEach(b=>b.onclick=()=>{document.querySelectorAll('.filtros button').forEach(x=>x.classList.remove('on'));b.classList.add('on');render(b.dataset.f);});
-render('todos');
 </script>
 
 <!-- ASF Ecossistema Nav v2 (rede completa, 21 sites) -->
