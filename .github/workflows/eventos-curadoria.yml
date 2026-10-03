@@ -1,0 +1,54 @@
+name: Curadoria Mensal de Eventos
+
+on:
+  schedule:
+    - cron: '0 13 1 * *' # dia 1 de cada mês, 10h BRT
+  workflow_dispatch:
+
+permissions:
+  issues: write
+
+jobs:
+  lembrete-curadoria:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Verificar se já existe issue aberta de curadoria
+        id: check
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          n=$(gh issue list --repo "${{ github.repository }}" --state open \
+              --search "Curadoria mensal de eventos" --json number --jq 'length')
+          echo "abertas=$n" >> $GITHUB_OUTPUT
+
+      - name: Abrir issue de curadoria
+        if: steps.check.outputs.abertas == '0'
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          mes=$(date -u +%m/%Y)
+          gh issue create --repo "${{ github.repository }}" \
+            --title "📅 Curadoria mensal de eventos — $mes" \
+            --body "## Tarefa mensal: verificar e atualizar \`eventos.json\`
+
+**Regra editorial:** somente eventos reais, atuais e com fonte verificável. Nunca inventar eventos ou datas.
+
+### 1. Verificar calendários oficiais
+- [ ] [WSL — Qualifying Series](https://www.worldsurfleague.com)
+- [ ] [CBSurf — Confederação Brasileira de Surf](https://www.cbsurf.com.br)
+- [ ] [FESERJ — Federação de Surf do RJ](https://feserj.com.br)
+- [ ] [Fecasurf — Federação Catarinense](https://fecasurf.com.br)
+- [ ] [SPSurf / Circuito Paulista](https://www.spsurf.com.br)
+- [ ] [FGS — Federação Gaúcha de Surf](https://www.fgsurf.com.br)
+
+### 2. Revisar eventos atuais no JSON
+- [ ] Eventos que já passaram → remover
+- [ ] Datas confirmadas → preencher campo \`data\`
+- [ ] Novos eventos → adicionar com \`fonte\`
+- [ ] Atualizar \`atualizado_em\`
+
+### 3. Publicar
+Commit no \`eventos.json\` do repo \`asf-eventos\` e conferir em https://eventos.asf.surf
+
+---
+*Issue automática do workflow de curadoria. Peça ao assistente (Composio) para verificar as fontes na web e propor as atualizações.*"
