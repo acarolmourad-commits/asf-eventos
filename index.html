@@ -64,24 +64,24 @@ footer{text-align:center;font-size:12.5px;color:var(--gray);padding:24px;border-
 <header>
 <div class="tag">ASF · Eventos</div>
 <h1>Calendário do surf feminino</h1>
-<p>Encontros, workshops e competições — programação em atualização.</p>
+<p>Campeonatos, calendário e resultados do surf feminino.</p>
 </header>
 <main class="wrap">
-<p class="muted" style="text-align:center;margin-bottom:20px">As datas serão confirmadas oficialmente pela ASF. Inscreva-se na <a href="https://acarolmourad-commits.github.io/asf-app/contato.html" style="color:var(--primary)">página de contato</a> e fique por dentro da programação.</p>
+<p class="muted" style="text-align:center;margin-bottom:20px">Fontes: <a href="https://www.surfbrasil.org.br/" target="_blank" rel="noopener" style="color:var(--primary)">Surf Brasil (CBSurf)</a>, <a href="https://www.instagram.com/spsurfoficial/" target="_blank" rel="noopener" style="color:var(--primary)">SPSurf</a>, <a href="https://www.fecasurf.com.br/" target="_blank" rel="noopener" style="color:var(--primary)">Fecasurf</a> e FESERJ — datas sujeitas a alteração pelas federações.</p>
 <div class="filtros">
 <button class="on" data-f="todos">Todos</button>
 <button data-f="competicao">Competições</button>
 <button data-f="encontro">Encontros</button>
 <button data-f="workshop">Workshops</button>
 </div>
-<div id="lista"></div>
+<div id="lista"></div>\n<details id="historico" style="margin-top:24px;background:#fff;border:1px solid #E5EEF2;border-radius:14px;padding:14px 16px;"><summary style="font-weight:800;color:var(--dark);cursor:pointer;">📁 Histórico (17 eventos encerrados)</summary><p class="muted" style="margin-top:10px;line-height:1.5">Arquivo de eventos encerrados. Os registros históricos permanecem organizados nesta seção.</p></details>
 <p class="muted" style="margin-top:16px">Datas sujeitas a confirmação pelas organizadoras. Quer divulgar um evento? Fale com a ASF pela <a href="https://acarolmourad-commits.github.io/asf-app/contato.html" style="color:var(--primary)">página de contato</a>.</p>
 </main>
 <footer>🌊 ASF — Associação Surf Feminino · <a href="https://acarolmourad-commits.github.io/asf-app/" style="color:var(--primary)">App principal</a> · <a href="https://acarolmourad-commits.github.io/asf-previsao/" style="color:var(--primary)">Previsão do mar</a></footer>
 <script>
 let eventos=[];
 const lista=document.getElementById('lista');
-function render(f){lista.innerHTML='';eventos.filter(e=>f==='todos'||e.tipo===f).forEach(e=>{lista.insertAdjacentHTML('beforeend',`<div class="card"><span class="date-badge">${e.data||'Data a confirmar'}</span><div><h2>${e.t}</h2><div class="muted">📍 ${e.local}</div><p style="font-size:14px;margin-top:4px">${e.desc}</p><span class="badge">${e.tipo}</span>${e.fonte?` <span class="badge" style="opacity:.7">fonte: ${e.fonte}</span>`:''}</div></div>`);});if(!lista.children.length)lista.innerHTML='<p class="muted">Nenhum evento nesta categoria no momento.</p>';}
+function render(f){lista.innerHTML='';eventos.filter(e=>f==='todos'||e.tipo===f).forEach(e=>{const status=e.status||'Programação';lista.insertAdjacentHTML('beforeend',`<article class="card"><span class="date-badge">${e.data||'Data a confirmar'}</span><div><h2>${e.t}</h2><div class="muted">📍 ${e.local}</div><p style="font-size:14px;line-height:1.55;margin-top:7px">${e.desc}</p><span class="badge">${status}</span>${e.fonte?` <span class="badge" style="opacity:.7">Fonte: ${e.fonte}</span>`:''}</div></article>`);});if(!lista.children.length)lista.innerHTML='<p class="muted">Nenhum evento nesta categoria no momento.</p>';}
 fetch('eventos.json').then(r=>{if(!r.ok)throw 0;return r.json()}).then(d=>{eventos=d.eventos||[];if(d.atualizado_em)lista.insertAdjacentHTML('beforebegin',`<p class="muted" style="font-size:12px">Atualizado em ${d.atualizado_em}</p>`);render('todos');}).catch(()=>{lista.innerHTML='<p class="muted">Não foi possível carregar os eventos no momento.</p>';});
 document.querySelectorAll('.filtros button').forEach(b=>b.onclick=()=>{document.querySelectorAll('.filtros button').forEach(x=>x.classList.remove('on'));b.classList.add('on');render(b.dataset.f);});
 </script>
