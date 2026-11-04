@@ -1,6 +1,33 @@
 {
-  "atualizado_em": "03/10/2026",
+  "atualizado_em": "04/11/2026",
   "eventos": [
+    {
+      "t": "Surf Brasil Pro 2026 — 4ª Etapa (Final)",
+      "local": "Santa Catarina — praia a definir (SC)",
+      "tipo": "competicao",
+      "data": "7 nov 2026 → 15 nov 2026",
+      "status": "Confirmado",
+      "desc": "Etapa final do circuito profissional nacional da CBSurf. Define os títulos brasileiros profissionais de 2026.",
+      "fonte": "Surf Brasil (CBSurf)"
+    },
+    {
+      "t": "Tríplice Coroa 2026",
+      "local": "Saquarema (RJ)",
+      "tipo": "competicao",
+      "data": "24 nov 2026 → 25 nov 2026",
+      "status": "Confirmado",
+      "desc": "Evento do calendário oficial FESERJ 2026, reunindo as categorias do estadual carioca.",
+      "fonte": "FESERJ"
+    },
+    {
+      "t": "Circuito Catarinense de Surf Pro 2026 — 3ª Etapa (Final)",
+      "local": "Prainha, São Francisco do Sul (SC)",
+      "tipo": "competicao",
+      "data": "3 dez 2026 → 6 dez 2026",
+      "status": "Confirmado",
+      "desc": "Etapa final do Circuito Catarinense de Surf Pro 2026 (Fecasurf/Fesporte).",
+      "fonte": "Fecasurf"
+    },
     {
       "t": "WSL QS 6.000 — Saquarema",
       "local": "Saquarema/RJ",
@@ -35,20 +62,6 @@
       "tipo": "competicao",
       "desc": "2ª etapa do Circuito Catarinense Pro (Fecasurf/Fesporte), circuito com premiação recorde no estado.",
       "fonte": "Fecasurf"
-    },
-    {
-      "t": "Surf Brasil Pro 2026 — 4ª Etapa (Final)",
-      "local": "Santa Catarina (praia a definir)",
-      "tipo": "competicao",
-      "desc": "Etapa final do circuito profissional nacional da CBSurf. Define os campeões brasileiros profissionais de 2026.",
-      "fonte": "CBSurf"
-    },
-    {
-      "t": "Tríplice Coroa 2026",
-      "local": "Saquarema/RJ",
-      "tipo": "competicao",
-      "desc": "Evento do calendário oficial FESERJ 2026, reunindo as categorias do estadual carioca.",
-      "fonte": "FESERJ"
     },
     {
       "t": "Circuito Catarinense de Surf Pro 2026 — Etapa Final",
